@@ -21,7 +21,7 @@ namespace PrimeNumberTest
             {
                 client.BaseAddress = new Uri((await JsonSerializer.DeserializeAsync<UriModel>(fs)).Uri);
             }
-            await TestExeption("/register", "401");
+            await TestExeption("/register", "401 Exception: 2");
             await Test("/Rates/UAH/USD", "200 result: 0.03");
             await Test("/Rates/UAH/USD?amount=100", "200 result: 3.6");
             Console.ReadKey();

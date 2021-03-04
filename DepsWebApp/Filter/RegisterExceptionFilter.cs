@@ -20,8 +20,18 @@ namespace DepsWebApp.Filter
         {
             if (!context.ExceptionHandled)
             {
+                int code = context.Exception switch
+                {
+                    NullReferenceException => 1,
+                    NotImplementedException => 2,
+                    ArgumentException => 3,
+                    IndexOutOfRangeException => 4,
+                    FileNotFoundException => 5,
+                    _ => context.Exception.HResult
+                };
+
                 var result =
-                    new JsonResult(new ExceptionModel(context.Exception.HResult, context.Exception.Message))
+                    new JsonResult(new ExceptionModel(code, context.Exception.Message))
                     {
                         StatusCode = (int)HttpStatusCode.Unauthorized
                     };
