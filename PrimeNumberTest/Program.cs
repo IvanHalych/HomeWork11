@@ -21,13 +21,13 @@ namespace PrimeNumberTest
             {
                 client.BaseAddress = new Uri((await JsonSerializer.DeserializeAsync<UriModel>(fs)).Uri);
             }
-            await TestExeption("/register", "401 Exception: 2");
+            await TestException("/register", "401 Exception: 2");
             await Test("/Rates/UAH/USD", "200 result: 0.03");
             await Test("/Rates/UAH/USD?amount=100", "200 result: 3.6");
             Console.ReadKey();
         }
         
-        public static async Task TestExeption(string uri,string expected)
+        public static async Task TestException(string uri,string expected)
         {
             var content = new StringContent(JsonSerializer.Serialize(new RegisterModel("login", "password")), Encoding.UTF8, "application/json");
             var response = await client.PostAsync(uri,content);
