@@ -25,7 +25,7 @@ namespace DepsWebApp.Controllers
         }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         /// <summary>
-        /// Get method show how much money we can exchange first currency on second currency, if request have amount, it will be exchanged
+        /// Get how much money we can exchange first currency on second currency, if request have amount, it will be exchanged
         /// </summary>
         /// <param name="srcCurrency">first currency</param>
         /// <param name="dstCurrency">second currency</param>

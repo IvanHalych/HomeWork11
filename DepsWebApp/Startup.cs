@@ -52,7 +52,7 @@ namespace DepsWebApp
                 var filePath = Path.Combine(AppContext.BaseDirectory, "DepsWebApp.xml");
                 if (File.Exists(filePath))
                 {
-                    c.IncludeXmlComments(filePath);
+                    c.IncludeXmlComments(filePath, includeControllerXmlComments: true);
                 }
             });
 
